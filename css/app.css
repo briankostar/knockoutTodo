@@ -15,5 +15,5 @@ h1{
 	margin-bottom: 20px;
 }
 body{
-	background: #eaeaea url('bg.png');
+	background: #eaeaea url('../img/bg.png');
 }
