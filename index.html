@@ -5,44 +5,51 @@
     <!-- Load CSS -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="css/app.css" />
+    <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="todo">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="todo centerIt">
                     <h1>Brian's KnockOut TodoApp</h1>
 
                     <button class="btn btn-success" id="createList" style="display: inline;">Create New List</button>
                     <hr>
                     <br>
-                    <table class="center-block hide todoList">
-                        <thead>
+                    <table class="center-block hide todoList table panel panel-primary">
+                        <thead class="panel-heading">
                             <th>#</th>
                             <th>Task: ( Remaining: <span data-bind="text: list().length"></span> )</th>
                             <th>Noted @:</th>
+                            <th class="centerIt">Delete</th>
                         </thead>
                         <tbody data-bind="foreach: list">
                             <td >
                                 <span data-bind="text: taskNum"></span>. 
                             </td>
                             <td>
-                                <input data-bind="value: task" />
+                                <input data-bind="value: task" class="form-control"/>
                             </td>
                             <td>
                                 <span data-bind="text: time"></span>
                             </td>
-                            <td>
-                                <a href="#" data-bind="click: $root.deleteTask">&#10006</a>
+                            <td class="centerIt">
+                                <a href="#" data-bind="click: $root.deleteTask"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+
                             </td>
                         </tbody>
                     </table>
-
-                    <button class="btn btn-primary hide todoList" data-bind="click: addTask">Add Task</button>
-                    <button class="btn btn-danger hide todoList" id="deleteList">Delete All Tasks</button>
+                    <div class="hide todoList">
+                    <button class="btn btn-primary" data-bind="click: addTask">Add Task</button>
+                    <button class="btn btn-warning random" data-bind="click: addRandomTask">Add RandomTask</button>
+                    <button class="btn btn-danger" id="deleteList">Delete All Tasks</button>
+                    </div>
                 </div>
             </div>
+            <div class="col-md-3"></div>
         </div>
     </div>
 </body>

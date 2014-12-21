@@ -1,4 +1,5 @@
 var taskNum = 1;
+var randNum = 0;
 function Item(task){
 	var self = this;
 	self.task = ko.observable(task);
@@ -6,6 +7,8 @@ function Item(task){
 	self.taskNum = taskNum;
 	taskNum++;
 }
+var randomTask = ['Clean Dishes', 'Finish Math Homework', 'Tidy the closet', 'Go Grocery shopping', 'Book Dentist Appointment',
+					'Learn a new language', 'Call Mum & Dad', 'Make the bed', 'Fold the laundry', 'Be nice to a stranger'];
 
 function TodoAppViewModel(){
 	var self = this;
@@ -17,6 +20,16 @@ function TodoAppViewModel(){
 	self.addTask = function(){
 		console.log('addTask called');
 		self.list.push(new Item(""));
+	};
+
+	self.addRandomTask = function(){
+		console.log('addTask called');
+		self.list.push(new Item(randomTask[randNum]));
+		randNum++;
+		if (randNum === 10){
+			$( ".random" ).addClass('hide');
+			randNum = 0;
+		}
 	};
 
 	self.deleteTask = function(task){
@@ -33,8 +46,9 @@ var listExists = false;
 $('#createList').click(function(){
   	$( "#createList" ).toggle();
   	$( ".todoList" ).removeClass('hide');
+  	$( ".random" ).removeClass('hide');
 	console.log('onclick create')
-	Todo.list.push(new Item(""));	
+	Todo.list.push(new Item("Have an awesome day!"));	
 });
 
 $('#deleteList').click(function(){
