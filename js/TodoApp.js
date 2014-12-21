@@ -1,6 +1,7 @@
 function Item(task){
 	var self = this;
 	self.task = ko.observable(task);
+	self.time = ko.observable(new Date());
 }
 
 function TodoAppViewModel(){
@@ -11,12 +12,12 @@ function TodoAppViewModel(){
 	self.typed = ko.observable();
 
 	self.addTask = function(){
-		console.log('addTask called')
+		console.log('addTask called');
 		self.list.push(new Item("--"));
 	};
 
 	self.deleteTask = function(task){
-		console.log(self.list)
+		console.log(self.list);
 		self.list.remove(task);
 	};
 }
@@ -31,7 +32,7 @@ var listExists = false;
 $('#createList').click(function(){
 	$( "#deleteList" ).toggle();
   	$( "#createList" ).toggle();
-	console.log('onclick create', Todo)
+	console.log('onclick create')
 	Todo.list.push(new Item("--"));
 	// var x = new Item('---')
 	// Todo.list = ko.observableArray([x]);
@@ -41,6 +42,6 @@ $('#createList').click(function(){
 $('#deleteList').click(function(){
 	$( "#createList" ).toggle();
 	$( "#deleteList" ).toggle();
-	console.log('onclick delete', Todo.list)
+	console.log('onclick delete')
 	Todo.list.removeAll();
 });

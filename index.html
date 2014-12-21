@@ -23,14 +23,18 @@
                         <thead>
                             <th></th>
                             <th>Task (<span data-bind="text: list().length">0</span>)</th>
-                            <th></th>
+                            <th>Noted..</th>
                         </thead>
                         <tbody data-bind="foreach: list">
                             <td></td>
                             <td>
                                 <input data-bind="value: task" />
                             </td>
-                            <td><a href="#" data-bind="click: $root.deleteTask">Remove</a>
+                            <td>
+                                <p data-bind="text: time"></p>
+                            </td>
+                            <td>
+                                <a href="#" data-bind="click: $root.deleteTask">&#10006</a>
                             </td>
                         </tbody>
                     </table>
