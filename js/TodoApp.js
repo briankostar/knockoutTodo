@@ -18,12 +18,10 @@ function TodoAppViewModel(){
 	self.typed = ko.observable();
 
 	self.addTask = function(){
-		console.log('addTask called');
 		self.list.push(new Item(""));
 	};
 
 	self.addRandomTask = function(){
-		console.log('addTask called');
 		self.list.push(new Item(randomTask[randNum]));
 		randNum++;
 		if (randNum === 10){
@@ -33,7 +31,6 @@ function TodoAppViewModel(){
 	};
 
 	self.deleteTask = function(task){
-		console.log(self.list);
 		self.list.remove(task);
 	};
 }
@@ -47,14 +44,12 @@ $('#createList').click(function(){
   	$( "#createList" ).toggle();
   	$( ".todoList" ).removeClass('hide');
   	$( ".random" ).removeClass('hide');
-	console.log('onclick create')
-	Todo.list.push(new Item("Have an awesome day!"));	
+	Todo.list.push(new Item("To have an awesome day!"));	
 });
 
 $('#deleteList').click(function(){
 	$( ".todoList" ).addClass('hide');
 	$( "#createList" ).toggle();
-	console.log('onclick delete')
 	Todo.list.removeAll();
 	taskNum = 1;
 });
