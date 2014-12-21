@@ -1,7 +1,10 @@
+var taskNum = 1;
 function Item(task){
 	var self = this;
 	self.task = ko.observable(task);
-	self.time = ko.observable(new Date());
+	self.time = ko.observable(moment().format('h:mm:ss a'));
+	self.taskNum = taskNum;
+	taskNum++;
 }
 
 function TodoAppViewModel(){
@@ -13,7 +16,7 @@ function TodoAppViewModel(){
 
 	self.addTask = function(){
 		console.log('addTask called');
-		self.list.push(new Item("--"));
+		self.list.push(new Item(""));
 	};
 
 	self.deleteTask = function(task){
@@ -22,26 +25,22 @@ function TodoAppViewModel(){
 	};
 }
 
-// ko.applyBindings(new TodoAppViewModel());
-
 var Todo = new TodoAppViewModel();
 ko.applyBindings(Todo);
 
 var listExists = false;
 
 $('#createList').click(function(){
-	$( "#deleteList" ).toggle();
   	$( "#createList" ).toggle();
+  	$( ".todoList" ).removeClass('hide');
 	console.log('onclick create')
-	Todo.list.push(new Item("--"));
-	// var x = new Item('---')
-	// Todo.list = ko.observableArray([x]);
-	
+	Todo.list.push(new Item(""));	
 });
 
 $('#deleteList').click(function(){
+	$( ".todoList" ).addClass('hide');
 	$( "#createList" ).toggle();
-	$( "#deleteList" ).toggle();
 	console.log('onclick delete')
 	Todo.list.removeAll();
+	taskNum = 1;
 });
