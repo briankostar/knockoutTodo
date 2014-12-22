@@ -19,7 +19,7 @@
                     <button class="btn btn-success" id="createList" style="display: inline;">Create New List</button>
                     <hr>
                     <br>
-                    <input placeholder="Search…" type="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" class="form-control">
+                    <input placeholder="Search…" type="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" class="form-control search hide">
                     <br>
                     <table class="center-block hide todoList table panel panel-primary">
                         <thead class="panel-heading">
@@ -30,10 +30,10 @@
                         </thead>
                         <tbody data-bind="foreach: list">
                             <td class="centerIt">
-                                <span data-bind="text: taskNum"></span>. 
+                                <span data-bind="text: taskNum"></span>.
                             </td>
                             <td>
-                                <input data-bind="value: task" class="form-control"/>
+                                <input data-bind="value: task" class="form-control" />
                             </td>
                             <td>
                                 <span data-bind="text: time"></span>
@@ -45,9 +45,9 @@
                         </tbody>
                     </table>
                     <div class="hide todoList">
-                    <button class="btn btn-primary" data-bind="click: addTask">Add Task</button>
-                    <button class="btn btn-warning random" data-bind="click: addRandomTask">Add RandomTask</button>
-                    <button class="btn btn-danger" id="deleteList">Delete All Tasks</button>
+                        <button class="btn btn-primary" data-bind="click: addTask">Add New Task</button>
+                        <button class="btn btn-warning random" data-bind="click: addRandomTask">Add RandomTask</button>
+                        <button class="btn btn-danger" id="deleteList">Delete All Tasks</button>
                     </div>
                 </div>
             </div>
